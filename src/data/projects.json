@@ -1,0 +1,17 @@
+[
+  {
+    "id": "p1",
+    "name": "Website Redesign",
+    "description": "Redesign the company website with modern UI"
+  },
+  {
+    "id": "p2",
+    "name": "Mobile App",
+    "description": "Build a cross-platform mobile application"
+  },
+  {
+    "id": "p3",
+    "name": "API Integration",
+    "description": "Integrate third-party payment and auth APIs"
+  }
+]
