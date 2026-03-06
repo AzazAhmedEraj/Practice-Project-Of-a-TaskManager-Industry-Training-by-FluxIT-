@@ -1,0 +1,8 @@
+.filters-panel { display:flex; gap:var(--space-sm); flex-wrap:wrap; padding:var(--space-md); background:var(--bg-surface); border:1px solid var(--border-dim); border-radius:var(--radius-lg); align-items:center; }
+.filters-label { font-family:var(--font-mono); font-size:10px; letter-spacing:2px; color:var(--text-muted); text-transform:uppercase; white-space:nowrap; }
+.filter-input,.filter-select { background:var(--bg-deep); border:1px solid var(--border-dim); border-radius:var(--radius-sm); padding:8px 12px; color:var(--text-primary); font-size:13px; font-family:var(--font-body); outline:none; transition:border-color var(--transition); }
+.filter-input { flex:1; min-width:160px; }
+.filter-input::placeholder { color:var(--text-muted); }
+.filter-input:focus,.filter-select:focus { border-color:var(--neon-cyan); box-shadow:0 0 0 2px rgba(0,245,255,0.1); }
+.filter-reset-btn { padding:7px 14px; background:rgba(255,0,110,0.08); border:1px solid rgba(255,0,110,0.3); border-radius:var(--radius-sm); color:var(--neon-pink); font-size:11px; font-family:var(--font-mono); cursor:pointer; transition:all var(--transition); white-space:nowrap; }
+.filter-reset-btn:hover { background:rgba(255,0,110,0.2); border-color:var(--neon-pink); }

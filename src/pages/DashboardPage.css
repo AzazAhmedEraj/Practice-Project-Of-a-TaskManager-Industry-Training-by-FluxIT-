@@ -1,0 +1,127 @@
+/* ============================================================
+   PAGES/DashboardPage.css — Used by both viewer & admin modes
+   ============================================================ */
+
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px - 80px);
+  overflow: hidden;
+}
+
+/* Top action bar (mode label + buttons) */
+.dashboard-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-xl);
+  background: var(--bg-deep);
+  border-bottom: 1px solid var(--border-dim);
+  flex-shrink: 0;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.dashboard-mode-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mode-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.mode-dot.view  { background: var(--neon-cyan); box-shadow: 0 0 6px var(--neon-cyan); }
+.mode-dot.admin { background: var(--neon-pink); box-shadow: 0 0 6px var(--neon-pink); animation: pulse-glow 2s infinite; }
+
+.mode-label-text.view  { color: var(--neon-cyan); }
+.mode-label-text.admin { color: var(--neon-pink); }
+
+.topbar-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* Small action buttons in topbar */
+.topbar-btn {
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 1px solid;
+}
+
+.topbar-btn.view-mode {
+  background: rgba(0,245,255,0.06);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+.topbar-btn.view-mode:hover {
+  background: rgba(0,245,255,0.15);
+  box-shadow: var(--glow-cyan);
+}
+
+.topbar-btn.back {
+  background: rgba(0,255,157,0.06);
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+}
+.topbar-btn.back:hover {
+  background: rgba(0,255,157,0.15);
+}
+
+.topbar-btn.logout {
+  background: rgba(255,0,110,0.06);
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
+}
+.topbar-btn.logout:hover {
+  background: rgba(255,0,110,0.18);
+  box-shadow: var(--glow-pink);
+}
+
+.topbar-btn.home {
+  background: rgba(123,163,200,0.06);
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
+}
+.topbar-btn.home:hover {
+  background: rgba(123,163,200,0.15);
+}
+
+/* Main dashboard body — sidebar + content side by side */
+.dashboard-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Right content area */
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .dashboard-page { height: auto; overflow: visible; }
+  .dashboard-body { flex-direction: column; }
+  .dashboard-main { padding: var(--space-md); }
+  .dashboard-topbar { padding: var(--space-sm) var(--space-md); }
+  .topbar-btn { font-size: 10px; padding: 6px 10px; }
+}

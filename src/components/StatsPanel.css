@@ -1,0 +1,18 @@
+.stats-panel { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--space-md); }
+.stat-card { background:var(--bg-surface); border:1px solid var(--border-dim); border-radius:var(--radius-lg); padding:var(--space-md) var(--space-lg); display:flex; flex-direction:column; gap:6px; transition:all var(--transition); position:relative; overflow:hidden; animation:slideInUp 0.3s ease both; }
+.stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; }
+.stat-card.total::after { background:var(--neon-cyan); }
+.stat-card.completed::after { background:var(--neon-green); }
+.stat-card.progress::after { background:var(--neon-yellow); }
+.stat-card.high::after { background:var(--neon-pink); }
+.stat-card:hover { border-color:var(--border-bright); transform:translateY(-2px); }
+.stat-number { font-family:var(--font-display); font-size:28px; font-weight:700; line-height:1; }
+.stat-card.total .stat-number { color:var(--neon-cyan); }
+.stat-card.completed .stat-number { color:var(--neon-green); }
+.stat-card.progress .stat-number { color:var(--neon-yellow); }
+.stat-card.high .stat-number { color:var(--neon-pink); }
+.stat-label { font-family:var(--font-mono); font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); }
+.stat-sub { font-family:var(--font-mono); font-size:11px; color:var(--text-secondary); margin-top:2px; }
+.stat-progress-bar { height:3px; background:var(--bg-elevated); border-radius:2px; overflow:hidden; margin-top:4px; }
+.stat-progress-fill { height:100%; background:var(--neon-green); border-radius:2px; transition:width 0.5s ease; box-shadow:0 0 6px var(--neon-green); }
+@media (max-width: 900px) { .stats-panel { grid-template-columns:repeat(2,1fr); } }

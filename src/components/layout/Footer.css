@@ -1,0 +1,13 @@
+.footer { background: rgba(5,13,21,0.98); border-top: 1px solid var(--border-bright); padding: var(--space-md) var(--space-xl); display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); position: relative; }
+.footer::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--neon-pink), transparent); }
+.footer-icons { display: flex; align-items: center; gap: var(--space-md); }
+.footer-icon-link { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: var(--radius-sm); border: 1px solid var(--border-dim); color: var(--text-secondary); text-decoration: none; font-size: 16px; transition: all var(--transition); background: rgba(13,31,53,0.6); }
+.footer-icon-link svg { width: 16px; height: 16px; fill: currentColor; }
+.footer-icon-link:hover { transform: translateY(-4px); border-color: var(--neon-cyan); color: var(--neon-cyan); box-shadow: var(--glow-cyan); background: rgba(0,245,255,0.08); }
+.footer-icon-link.github:hover  { border-color:#fff; color:#fff; box-shadow:0 0 15px #ffffff40; }
+.footer-icon-link.linkedin:hover { border-color:#0077b5; color:#0077b5; box-shadow:0 0 15px #0077b540; }
+.footer-icon-link.gmail:hover   { border-color:#ea4335; color:#ea4335; box-shadow:0 0 15px #ea433540; }
+.footer-icon-link.facebook:hover { border-color:#1877f2; color:#1877f2; box-shadow:0 0 15px #1877f240; }
+.footer-icon-link.instagram:hover { border-color:#e1306c; color:#e1306c; box-shadow:0 0 15px #e1306c40; }
+.footer-copyright { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+.footer-copyright span { color: var(--neon-cyan); }

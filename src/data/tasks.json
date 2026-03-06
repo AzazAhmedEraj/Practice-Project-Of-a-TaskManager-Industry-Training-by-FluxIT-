@@ -1,82 +1,13 @@
 [
-  {
-    "id": "t1",
-    "projectId": "p1",
-    "title": "Design homepage mockup",
-    "status": "Done",
-    "priority": "High",
-    "createdAt": "2026-02-01"
-  },
-  {
-    "id": "t2",
-    "projectId": "p1",
-    "title": "Build navigation component",
-    "status": "In Progress",
-    "priority": "High",
-    "createdAt": "2026-02-03"
-  },
-  {
-    "id": "t3",
-    "projectId": "p1",
-    "title": "Write content for About page",
-    "status": "Todo",
-    "priority": "Low",
-    "createdAt": "2026-02-05"
-  },
-  {
-    "id": "t4",
-    "projectId": "p1",
-    "title": "Setup hosting and deployment",
-    "status": "Todo",
-    "priority": "Medium",
-    "createdAt": "2026-02-06"
-  },
-  {
-    "id": "t5",
-    "projectId": "p2",
-    "title": "Setup React Native environment",
-    "status": "Done",
-    "priority": "High",
-    "createdAt": "2026-02-10"
-  },
-  {
-    "id": "t6",
-    "projectId": "p2",
-    "title": "Build login screen",
-    "status": "In Progress",
-    "priority": "High",
-    "createdAt": "2026-02-11"
-  },
-  {
-    "id": "t7",
-    "projectId": "p2",
-    "title": "Implement push notifications",
-    "status": "Todo",
-    "priority": "Medium",
-    "createdAt": "2026-02-12"
-  },
-  {
-    "id": "t8",
-    "projectId": "p3",
-    "title": "Research Stripe API docs",
-    "status": "Done",
-    "priority": "High",
-    "createdAt": "2026-02-15"
-  },
-  {
-    "id": "t9",
-    "projectId": "p3",
-    "title": "Implement OAuth login",
-    "status": "In Progress",
-    "priority": "High",
-    "createdAt": "2026-02-16"
-  },
-  {
-    "id": "t10",
-    "projectId": "p3",
-    "title": "Write API integration tests",
-    "status": "Todo",
-    "priority": "Low",
-    "createdAt": "2026-02-17"
-  }
+  {"id":"t1","projectId":"p1","title":"Design homepage mockup","description":"Create wireframes and high-fidelity mockups.","status":"Done","priority":"High","createdAt":"2026-01-12"},
+  {"id":"t2","projectId":"p1","title":"Build navigation component","description":"Develop a responsive navbar with mobile hamburger menu.","status":"In Progress","priority":"High","createdAt":"2026-01-15"},
+  {"id":"t3","projectId":"p1","title":"Write content for About page","description":"Draft copy for the About, Mission, and Team sections.","status":"Todo","priority":"Low","createdAt":"2026-01-18"},
+  {"id":"t4","projectId":"p1","title":"Setup hosting and deployment","description":"Configure CI/CD pipeline and deploy to production.","status":"Todo","priority":"Medium","createdAt":"2026-01-20"},
+  {"id":"t5","projectId":"p1","title":"Optimize images and assets","description":"Compress images and set up lazy loading.","status":"Todo","priority":"Medium","createdAt":"2026-01-22"},
+  {"id":"t6","projectId":"p2","title":"Setup React Native environment","description":"Install dependencies and configure build environments.","status":"Done","priority":"High","createdAt":"2026-01-22"},
+  {"id":"t7","projectId":"p2","title":"Build login screen","description":"Implement email/password login with form validation.","status":"In Progress","priority":"High","createdAt":"2026-01-25"},
+  {"id":"t8","projectId":"p2","title":"Implement push notifications","description":"Integrate Firebase Cloud Messaging.","status":"Todo","priority":"Medium","createdAt":"2026-01-28"},
+  {"id":"t9","projectId":"p3","title":"Research Stripe API docs","description":"Review Stripe payment intent API and webhook docs.","status":"Done","priority":"High","createdAt":"2026-02-03"},
+  {"id":"t10","projectId":"p3","title":"Implement OAuth login","description":"Add Google and GitHub OAuth using Passport.js.","status":"In Progress","priority":"High","createdAt":"2026-02-05"},
+  {"id":"t11","projectId":"p3","title":"Write API integration tests","description":"Write unit and integration tests using Jest.","status":"Todo","priority":"Low","createdAt":"2026-02-08"}
 ]
