@@ -1,36 +1,19 @@
-// LoginPage.tsx
-// Fix #6: Always renders the login form.
-// If user is already authenticated (active session), auto-proceed to admin.
-// This ensures the button always goes through login, never skips it.
+// LoginPage.tsx — No credentials displayed, clean professional login form.
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
 interface Props {
   onSuccess: () => void;
   onBack: () => void;
-  alreadyAuthenticated?: boolean;
-  onAlreadyAuthenticated?: () => void;
 }
 
-export default function LoginPage({
-  onSuccess,
-  onBack,
-  alreadyAuthenticated = false,
-  onAlreadyAuthenticated,
-}: Props) {
+export default function LoginPage({ onSuccess, onBack }: Props) {
   const { login } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
-  // If session already active, auto-redirect to admin (no need to re-login)
-  useEffect(() => {
-    if (alreadyAuthenticated && onAlreadyAuthenticated) {
-      onAlreadyAuthenticated();
-    }
-  }, [alreadyAuthenticated, onAlreadyAuthenticated]);
 
   function handleSubmit() {
     setError("");
@@ -46,28 +29,13 @@ export default function LoginPage({
         onSuccess();
       } else {
         setError("Invalid credentials. Access denied.");
+        setPassword("");
       }
-    }, 600);
+    }, 500);
   }
 
   function handleKeyDown(e: React.KeyboardEvent) {
     if (e.key === "Enter") handleSubmit();
-  }
-
-  // Show brief loading state while checking existing session
-  if (alreadyAuthenticated) {
-    return (
-      <main className="login-page">
-        <div className="landing-grid" />
-        <div className="login-card">
-          <div className="login-card-header">
-            <div className="login-icon">E</div>
-            <div className="login-title">RESUMING SESSION</div>
-            <div className="login-subtitle">Redirecting to admin area...</div>
-          </div>
-        </div>
-      </main>
-    );
   }
 
   return (
@@ -95,6 +63,7 @@ export default function LoginPage({
               onKeyDown={handleKeyDown}
               autoFocus
               autoComplete="off"
+              spellCheck={false}
             />
           </div>
 
@@ -107,7 +76,7 @@ export default function LoginPage({
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onKeyDown={handleKeyDown}
-              autoComplete="off"
+              autoComplete="current-password"
             />
           </div>
 
@@ -122,10 +91,6 @@ export default function LoginPage({
           <button className="login-back-btn" onClick={onBack}>
             ← Back to Home
           </button>
-
-          <div className="login-hint">
-            Hint: username = eraj · password = 1234
-          </div>
         </div>
       </div>
     </main>

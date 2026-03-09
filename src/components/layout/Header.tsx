@@ -19,7 +19,7 @@ export default function Header({ showAdminBadge = false, adminUsername = "eraj" 
           <div className="header-title">
             <span>Eraj</span>'s Dashboard
           </div>
-          <div className="header-subtitle">Project Management System</div>
+          <div className="header-subtitle">Project Tracking System</div>
         </div>
       </a>
 

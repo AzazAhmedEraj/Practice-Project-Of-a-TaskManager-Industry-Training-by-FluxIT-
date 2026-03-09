@@ -1,14 +1,11 @@
 // TaskBoard.tsx
-// Fix #2: Show exactly 3 task cards, then "See More".
-//         Column scrolls internally if content overflows.
+// No "See More" — columns scroll freely showing all tasks.
+// Cards are compact so 2 fit when title+description are short.
 
 import { useState } from "react";
 import { Task, TaskStatus, TaskPriority } from "../types";
 import TaskCard from "./TaskCard";
 import "./TaskBoard.css";
-
-// Fix #2: changed from 4 to 3
-const VISIBLE_LIMIT = 3;
 
 const COLUMNS: { status: TaskStatus; dotClass: string }[] = [
   { status: "Todo",        dotClass: "Todo" },
@@ -33,20 +30,10 @@ export default function TaskBoard({
   onEditTask,
   onDeleteTask,
 }: Props) {
-  const [expandedCols, setExpandedCols] = useState<Set<TaskStatus>>(new Set());
   const [addingInCol, setAddingInCol] = useState<TaskStatus | null>(null);
   const [addTitle, setAddTitle] = useState("");
   const [addDesc, setAddDesc] = useState("");
   const [addPriority, setAddPriority] = useState<TaskPriority>("Medium");
-
-  function toggleExpand(status: TaskStatus) {
-    setExpandedCols((prev) => {
-      const next = new Set(prev);
-      if (next.has(status)) next.delete(status);
-      else next.add(status);
-      return next;
-    });
-  }
 
   function openAddForm(status: TaskStatus) {
     setAddingInCol(status);
@@ -66,9 +53,6 @@ export default function TaskBoard({
     <div className="task-board">
       {COLUMNS.map(({ status, dotClass }) => {
         const colTasks = tasks.filter((t) => t.status === status);
-        const isExpanded = expandedCols.has(status);
-        const hasMore = colTasks.length > VISIBLE_LIMIT;
-        const visibleTasks = isExpanded ? colTasks : colTasks.slice(0, VISIBLE_LIMIT);
 
         return (
           <div key={status} className="board-column">
@@ -85,15 +69,16 @@ export default function TaskBoard({
                   onClick={() =>
                     addingInCol === status ? setAddingInCol(null) : openAddForm(status)
                   }
+                  title="Add task"
                 >
                   +
                 </button>
               )}
             </div>
 
-            {/* Fix #2: column-tasks has overflow-y auto for internal scroll */}
+            {/* Column body — scrolls freely, no limit */}
             <div className="column-tasks">
-              {/* Add task form */}
+              {/* Add task inline form */}
               {isAdmin && addingInCol === status && (
                 <div className="add-task-form">
                   <input
@@ -101,6 +86,7 @@ export default function TaskBoard({
                     placeholder="Task title..."
                     value={addTitle}
                     onChange={(e) => setAddTitle(e.target.value)}
+                    onKeyDown={(e) => e.key === "Enter" && confirmAdd()}
                   />
                   <input
                     placeholder="Description (optional)..."
@@ -122,14 +108,15 @@ export default function TaskBoard({
                 </div>
               )}
 
-              {colTasks.length === 0 && (
+              {colTasks.length === 0 && addingInCol !== status && (
                 <div className="empty-column">
                   <span className="empty-column-icon">◌</span>
                   <span>No tasks here</span>
                 </div>
               )}
 
-              {visibleTasks.map((task) => (
+              {/* ALL tasks shown — no limit, column scrolls */}
+              {colTasks.map((task) => (
                 <TaskCard
                   key={task.id}
                   task={task}
@@ -139,14 +126,6 @@ export default function TaskBoard({
                   onDelete={onDeleteTask}
                 />
               ))}
-
-              {hasMore && (
-                <button className="see-more-btn" onClick={() => toggleExpand(status)}>
-                  {isExpanded
-                    ? "▲ COLLAPSE"
-                    : `▼ SEE MORE (${colTasks.length - VISIBLE_LIMIT} more)`}
-                </button>
-              )}
             </div>
           </div>
         );
