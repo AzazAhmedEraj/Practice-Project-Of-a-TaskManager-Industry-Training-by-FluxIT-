@@ -16,7 +16,7 @@ export default function Footer() {
           </a>
         ))}
       </div>
-      <div className="footer-copyright">© <span>2026</span> · Eraj's Dashboard · All Rights Reserved</div>
+      <div className="footer-copyright">© <span>2026</span> · Eraj's Project Tracking Dashboard · All Rights Reserved</div>
     </footer>
   );
 }
