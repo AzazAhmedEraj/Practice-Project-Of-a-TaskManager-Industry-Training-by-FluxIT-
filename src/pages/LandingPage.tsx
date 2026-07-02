@@ -34,7 +34,7 @@ export default function LandingPage({ onViewProjects, onEnterAdmin }: Props) {
       </button>
 
       <div className="landing-content">
-        <div className="landing-tag">◈ Project Management System v1.0</div>
+        <div className="landing-tag">⬡ Frontend SaaS Architecture · React + TypeScript</div>
 
         <h1 className="landing-title">
           <span className="accent">Eraj</span>'s
@@ -43,8 +43,10 @@ export default function LandingPage({ onViewProjects, onEnterAdmin }: Props) {
         </h1>
 
         <p className="landing-description">
-          A professional cyberpunk-themed project management tool.
-          Track tasks, manage projects, and stay in control — all in one place.
+          Production-grade, frontend-only SaaS dashboard simulating
+          real-world tools like <strong>Jira</strong> and <strong>ClickUp</strong>.
+          Built with React, TypeScript, custom hooks, derived state & LocalStorage persistence. A professional tool to
+          Track tasks, manage projects & stay in control — all in one place.
         </p>
 
         <div className="landing-features">
